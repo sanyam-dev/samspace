@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS projects (
   title TEXT NOT NULL,
   description TEXT NOT NULL,
   tags TEXT NOT NULL DEFAULT '[]',
+  year TEXT,
   demo_url TEXT,
   source_url TEXT,
   featured INTEGER NOT NULL DEFAULT 1,

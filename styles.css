@@ -310,52 +310,6 @@ ul {
   border-top: 1px solid var(--rule);
 }
 
-/* Writing */
-
-.writing-list {
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-}
-
-.writing-list li {
-  display: flex;
-  gap: 18px;
-  align-items: baseline;
-}
-
-.post-date {
-  flex: none;
-  width: 72px;
-  font-family: var(--mono);
-  font-size: 11.5px;
-  color: var(--ink-56);
-}
-
-.writing-list a {
-  color: var(--ink);
-  font-size: 15px;
-}
-
-.writing-list a:hover {
-  color: var(--accent);
-}
-
-.more {
-  margin: 17px 0 0;
-  font-family: var(--mono);
-  font-size: 12.5px;
-}
-
-.more a {
-  color: var(--ink);
-}
-
-.more a:hover {
-  color: var(--accent);
-}
-
 /* Now / Contact */
 
 .prose {

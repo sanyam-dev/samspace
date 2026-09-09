@@ -8,7 +8,7 @@ Personal portfolio site — hand-coded HTML, CSS, and vanilla JavaScript. No fra
 index.html          # the site
 styles.css
 script.js
-assets/             # imagery
+assets/             # imagery and résumé PDF
 data/projects.json  # project data the site reads at runtime
 prototypes/         # three header treatments from the wireframe
 backend/            # local-only API + SQLite (not deployed)
@@ -35,7 +35,7 @@ Projects are stored in SQLite at `backend/data/samspace.db`.
 ```bash
 cd backend
 npm install          # first time only
-npm run db:seed      # seed placeholder projects into an empty database
+npm run db:seed      # apply backend/src/test/data/projects.json (upserts by slug, safe to rerun)
 npm run db:export    # write data/projects.json for the static site
 ```
 
