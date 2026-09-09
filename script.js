@@ -98,5 +98,83 @@
     }
   };
 
+  const ARTWORK_ENDPOINT = "https://openaccess-api.clevelandart.org/api/artworks";
+
+  const ARTWORK_FILTERS = {
+    type: "Painting",
+    has_image: 1,
+    limit: 1,
+  };
+
+  const normaliseArtwork = (raw) => {
+    if (!raw) return null;
+
+    const list = Array.isArray(raw) ? raw : raw.data ?? null;
+    const source = list ? list[0] : raw.object ?? raw;
+
+    if (!source) return null;
+
+    const imageUrl =
+      source.imageUrl ??
+      source.images?.web?.url ??
+      source.primaryImageSmall ??
+      source.primaryImage;
+
+    if (!imageUrl) return null;
+
+    return {
+      imageUrl,
+      title: source.title ?? "Untitled",
+      artist:
+        source.artist ??
+        source.creators?.[0]?.description ??
+        source.artistDisplayName ??
+        "Unknown",
+      date: source.date ?? source.creation_date ?? source.objectDate ?? "",
+    };
+  };
+
+  const loadArtwork = async () => {
+    const slot = document.querySelector("[data-artwork-slot]");
+    const caption = document.querySelector("[data-artwork-caption]");
+
+    if (!slot) return;
+
+    try {
+      const url = new URL(ARTWORK_ENDPOINT);
+      for (const [key, value] of Object.entries(ARTWORK_FILTERS)) {
+        url.searchParams.set(key, String(value));
+      }
+
+      const response = await fetch(url, { cache: "no-cache" });
+
+      if (!response.ok) {
+        throw new Error(`Artwork request failed with ${response.status}`);
+      }
+
+      const artwork = normaliseArtwork(await response.json());
+
+      if (!artwork) {
+        throw new Error("Artwork response had no image");
+      }
+
+      const image = document.createElement("img");
+      image.src = artwork.imageUrl;
+      image.alt = `${artwork.title} — ${artwork.artist}`;
+      image.loading = "eager";
+      slot.replaceChildren(image);
+
+      if (caption) {
+        caption.textContent = [artwork.title, artwork.artist, artwork.date]
+          .filter(Boolean)
+          .join(" · ");
+      }
+    } catch (error) {
+      console.warn("Artwork unavailable, keeping placeholder", error);
+      if (caption) caption.textContent = "artwork unavailable";
+    }
+  };
+
   renderWork();
+  loadArtwork();
 })();

@@ -207,6 +207,34 @@ ul {
   object-fit: cover;
 }
 
+.swatches {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.swatches i {
+  display: block;
+  flex: 1;
+}
+
+.swatches i:nth-child(1) {
+  background: var(--accent);
+}
+
+.swatches i:nth-child(2) {
+  background: #f2836f;
+}
+
+.swatches i:nth-child(3) {
+  flex: 1.6;
+  background: var(--ink);
+}
+
+.swatches i:nth-child(4) {
+  background: #8e2c1f;
+}
+
 .plate-caption {
   display: flex;
   justify-content: space-between;

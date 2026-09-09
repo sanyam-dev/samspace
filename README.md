@@ -10,7 +10,6 @@ styles.css
 script.js
 assets/             # imagery and résumé PDF
 data/projects.json  # project data the site reads at runtime
-prototypes/         # three header treatments from the wireframe
 backend/            # local-only API + SQLite (not deployed)
 ```
 
@@ -26,7 +25,7 @@ for `projects.json`):
 python3 -m http.server 5500
 ```
 
-Then visit http://localhost:5500, or http://localhost:5500/prototypes/ for the header options.
+Then visit http://localhost:5500.
 
 ## Editing projects
 
