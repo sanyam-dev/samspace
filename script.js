@@ -106,6 +106,32 @@
     limit: 1,
   };
 
+  const artworkUrl = (filters) => {
+    const url = new URL(ARTWORK_ENDPOINT);
+    for (const [key, value] of Object.entries(filters)) {
+      url.searchParams.set(key, String(value));
+    }
+    return url;
+  };
+
+  const fetchArtworkPage = async (filters) => {
+    const response = await fetch(artworkUrl(filters), { cache: "no-cache" });
+
+    if (!response.ok) {
+      throw new Error(`Artwork request failed with ${response.status}`);
+    }
+
+    return response.json();
+  };
+
+  const fetchRandomArtwork = async () => {
+    const first = await fetchArtworkPage({ ...ARTWORK_FILTERS, skip: 0 });
+    const total = Number(first.info?.total) || 0;
+    const skip = total > 1 ? Math.floor(Math.random() * total) : 0;
+    const page = skip === 0 ? first : await fetchArtworkPage({ ...ARTWORK_FILTERS, skip });
+    return normaliseArtwork(page);
+  };
+
   const normaliseArtwork = (raw) => {
     if (!raw) return null;
 
@@ -141,18 +167,7 @@
     if (!slot) return;
 
     try {
-      const url = new URL(ARTWORK_ENDPOINT);
-      for (const [key, value] of Object.entries(ARTWORK_FILTERS)) {
-        url.searchParams.set(key, String(value));
-      }
-
-      const response = await fetch(url, { cache: "no-cache" });
-
-      if (!response.ok) {
-        throw new Error(`Artwork request failed with ${response.status}`);
-      }
-
-      const artwork = normaliseArtwork(await response.json());
+      const artwork = await fetchRandomArtwork();
 
       if (!artwork) {
         throw new Error("Artwork response had no image");
