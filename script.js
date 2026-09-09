@@ -103,19 +103,21 @@
   const ARTWORK_FILTERS = {
     type: "Painting",
     has_image: 1,
-    limit: 1,
   };
 
   const artworkUrl = (filters) => {
     const url = new URL(ARTWORK_ENDPOINT);
     for (const [key, value] of Object.entries(filters)) {
-      url.searchParams.set(key, String(value));
+      if (value !== undefined && value !== null) {
+        url.searchParams.set(key, String(value));
+      }
     }
+    url.searchParams.set("_", String(Date.now()));
     return url;
   };
 
   const fetchArtworkPage = async (filters) => {
-    const response = await fetch(artworkUrl(filters), { cache: "no-cache" });
+    const response = await fetch(artworkUrl(filters), { cache: "no-store" });
 
     if (!response.ok) {
       throw new Error(`Artwork request failed with ${response.status}`);
@@ -125,18 +127,29 @@
   };
 
   const fetchRandomArtwork = async () => {
-    const first = await fetchArtworkPage({ ...ARTWORK_FILTERS, skip: 0 });
-    const total = Number(first.info?.total) || 0;
-    const skip = total > 1 ? Math.floor(Math.random() * total) : 0;
-    const page = skip === 0 ? first : await fetchArtworkPage({ ...ARTWORK_FILTERS, skip });
-    return normaliseArtwork(page);
+    const pageSize = 24;
+    const probe = await fetchArtworkPage({ ...ARTWORK_FILTERS, limit: 1, skip: 0 });
+    const total = Number(probe.info?.total) || 0;
+    const maxSkip = Math.max(total - pageSize, 0);
+    const skip = maxSkip ? Math.floor(Math.random() * (maxSkip + 1)) : 0;
+    const page = await fetchArtworkPage({ ...ARTWORK_FILTERS, limit: pageSize, skip });
+    const pool = Array.isArray(page.data) && page.data.length
+      ? page.data
+      : Array.isArray(probe.data)
+        ? probe.data
+        : [];
+
+    if (!pool.length) return null;
+
+    return normaliseArtwork(pool[Math.floor(Math.random() * pool.length)]);
   };
 
-  const normaliseArtwork = (raw) => {
-    if (!raw) return null;
+  const normaliseArtwork = (source) => {
+    if (!source) return null;
 
-    const list = Array.isArray(raw) ? raw : raw.data ?? null;
-    const source = list ? list[0] : raw.object ?? raw;
+    if (Array.isArray(source)) source = source[0];
+    else if (source.data) source = source.data[0];
+    else if (source.object) source = source.object;
 
     if (!source) return null;
 
