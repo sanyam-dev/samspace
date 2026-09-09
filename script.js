@@ -103,6 +103,7 @@
   const ARTWORK_FILTERS = {
     type: "Painting",
     has_image: 1,
+    artists: "Claude Monet",
   };
 
   const artworkUrl = (filters) => {
