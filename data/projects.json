@@ -1,0 +1,40 @@
+[
+  {
+    "slug": "project-one",
+    "title": "Project one",
+    "description": "Short description of what you built, who it was for, and the outcome. Swap this with a real project.",
+    "tags": [
+      "Web",
+      "UI"
+    ],
+    "demoUrl": null,
+    "sourceUrl": null,
+    "featured": true,
+    "sortOrder": 1
+  },
+  {
+    "slug": "project-two",
+    "title": "Project two",
+    "description": "Another highlight — focus on the problem you solved and the stack that made sense for it.",
+    "tags": [
+      "API",
+      "Backend"
+    ],
+    "demoUrl": null,
+    "sourceUrl": null,
+    "featured": true,
+    "sortOrder": 2
+  },
+  {
+    "slug": "project-three",
+    "title": "Project three",
+    "description": "A third card keeps the grid balanced. Replace with something you're proud of or still iterating on.",
+    "tags": [
+      "Tooling"
+    ],
+    "demoUrl": null,
+    "sourceUrl": null,
+    "featured": true,
+    "sortOrder": 3
+  }
+]

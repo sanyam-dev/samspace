@@ -1,0 +1,11 @@
+node_modules/
+_site/
+.wireframe/
+.recovered/
+*.zip
+*.db
+*.db-*
+.env*
+!.env.example
+.DS_Store
+.firecrawl/

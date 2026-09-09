@@ -1,0 +1,427 @@
+:root {
+  /* Palette lifted from the wireframe */
+  --paper: #f6f7eb;
+  --ink: #393e41;
+  --rule: #7c8286;
+  --rule-light: #c3c7c9;
+  --accent: #e94f37;
+  --accent-deep: #b8391f;
+  --accent-text: #c0391f;
+
+  --ink-74: rgba(57, 62, 65, 0.74);
+  --ink-72: rgba(57, 62, 65, 0.72);
+  --ink-60: rgba(57, 62, 65, 0.6);
+  --ink-56: rgba(57, 62, 65, 0.56);
+  --ink-55: rgba(57, 62, 65, 0.55);
+  --ink-50: rgba(57, 62, 65, 0.5);
+  --mat: rgba(57, 62, 65, 0.07);
+
+  --rail-w: 280px;
+  --column-max: 660px;
+
+  --sans: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-deep);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 10;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Small uppercase mono label used throughout */
+.lbl {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+}
+
+.shell {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Rail — fixed; the name stays while the column scrolls */
+
+.rail {
+  position: sticky;
+  top: 0;
+  width: var(--rail-w);
+  flex: none;
+  height: 100vh;
+  border-right: 1px solid var(--rule);
+}
+
+.rail-inner {
+  height: 100%;
+  padding: 48px 36px 42px 44px;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.tagline {
+  margin: 18px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-74);
+}
+
+.rail .lbl {
+  margin-top: 46px;
+}
+
+.index-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.index-nav a {
+  color: var(--ink);
+  width: fit-content;
+}
+
+.index-nav a:hover {
+  color: var(--accent);
+}
+
+.index-nav a.muted {
+  color: var(--ink-55);
+  pointer-events: none;
+}
+
+.elsewhere {
+  margin-top: 13px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.elsewhere a {
+  color: var(--ink-60);
+}
+
+.elsewhere a:hover {
+  color: var(--accent);
+}
+
+.availability {
+  margin: auto 0 0;
+  padding-top: 40px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-text);
+}
+
+/* Scrolling column */
+
+.column {
+  flex: 1;
+  min-width: 0;
+  max-width: calc(var(--column-max) + 88px);
+  padding: 48px 44px 40px 40px;
+}
+
+/* Framed plate — art inset with a mat, captioned like a print */
+
+.plate {
+  margin: 0;
+  border: 1px solid var(--rule);
+  padding: 14px;
+  background: var(--mat);
+}
+
+.plate-art {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.plate-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plate-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 11px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-72);
+}
+
+.plate-number {
+  color: var(--ink-50);
+}
+
+.column section {
+  margin-top: 38px;
+}
+
+/* Work list */
+
+.work-list {
+  margin-top: 22px;
+}
+
+.work-item {
+  padding: 26px 0;
+  border-top: 1px solid var(--rule-light);
+}
+
+.work-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.work-item:last-child {
+  padding-bottom: 0;
+}
+
+.work-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.work-title a {
+  color: inherit;
+}
+
+.work-title a:hover {
+  color: var(--accent);
+}
+
+.work-desc {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-72);
+  max-width: var(--column-max);
+}
+
+.work-meta {
+  margin: 12px 0 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-60);
+}
+
+.work-meta .read {
+  color: var(--accent-text);
+  font-weight: 500;
+}
+
+.work-status {
+  margin: 22px 0 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-60);
+}
+
+.aside {
+  margin: 30px 0 0;
+  max-width: 42ch;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-72);
+}
+
+.aside a {
+  color: var(--accent-text);
+  font-weight: 500;
+}
+
+/* Full-width rule between column blocks */
+.rule {
+  margin: 42px 0 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* Writing */
+
+.writing-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.writing-list li {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+}
+
+.post-date {
+  flex: none;
+  width: 72px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-56);
+}
+
+.writing-list a {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.writing-list a:hover {
+  color: var(--accent);
+}
+
+.more {
+  margin: 17px 0 0;
+  font-family: var(--mono);
+  font-size: 12.5px;
+}
+
+.more a {
+  color: var(--ink);
+}
+
+.more a:hover {
+  color: var(--accent);
+}
+
+/* Now / Contact */
+
+.prose {
+  margin: 16px 0 0;
+  max-width: var(--column-max);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-72);
+}
+
+.contact-line {
+  margin: 14px 0 0;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.contact-line a {
+  color: var(--accent-text);
+}
+
+.colophon {
+  margin-top: 52px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule-light);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-50);
+}
+
+/* Responsive — the rail stops being fixed and stacks on top */
+
+@media (max-width: 860px) {
+  .shell {
+    flex-direction: column;
+  }
+
+  .rail {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .rail-inner {
+    padding: 34px 28px 30px;
+  }
+
+  .rail .lbl {
+    margin-top: 32px;
+  }
+
+  .availability {
+    margin-top: 28px;
+    padding-top: 0;
+  }
+
+  .column {
+    max-width: none;
+    width: 100%;
+    padding: 32px 28px 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
