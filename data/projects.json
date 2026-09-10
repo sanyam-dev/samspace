@@ -1,5 +1,35 @@
 [
   {
+    "slug": "exp-linear-decay-transition",
+    "title": "Exp / Linear Decay Transition",
+    "description": "Finds where a concentration curve leaves a near-linear regime and settles into clean single-exponential decay. Python analysis plus a notebook over average-concentration series, with linear and semi-log fits for the two regimes.",
+    "tags": [
+      "Python",
+      "Scientific computing",
+      "Curve fitting"
+    ],
+    "year": "2026",
+    "demoUrl": null,
+    "sourceUrl": "https://github.com/sanyam-dev/exp-linear-decay-transition",
+    "featured": true,
+    "sortOrder": 1
+  },
+  {
+    "slug": "spy-dia-market-harness",
+    "title": "SPY / DIA Market Agent Harness",
+    "description": "An agent harness for running and evaluating market-analysis workflows against SPY and DIA. Focused on repeatable agent loops, tooling around those ETF series, and iterating on prompts and checks without hand-running every trial.",
+    "tags": [
+      "Agents",
+      "Markets",
+      "Harness"
+    ],
+    "year": "2026",
+    "demoUrl": null,
+    "sourceUrl": null,
+    "featured": true,
+    "sortOrder": 2
+  },
+  {
     "slug": "research-paper-rag",
     "title": "Research Paper RAG",
     "description": "A RAG system that ingests research papers into a vector database and uses the retrieved context for LLM inference. The agent and vector store are connected; an ingestion API is still to come.",
@@ -11,36 +41,6 @@
     "year": "2026",
     "demoUrl": null,
     "sourceUrl": "https://github.com/sanyam-dev/research_paper_rag",
-    "featured": true,
-    "sortOrder": 1
-  },
-  {
-    "slug": "review-manager",
-    "title": "Review Manager",
-    "description": "Semantic search over posted JSON reviews, using the local all-mpnet-base-v2 embedding model. APIs cover record retrieval, database status, and environment health checks.",
-    "tags": [
-      "Python",
-      "RAG",
-      "Embeddings"
-    ],
-    "year": "2025",
-    "demoUrl": null,
-    "sourceUrl": "https://github.com/sanyam-dev/review_manager",
-    "featured": true,
-    "sortOrder": 2
-  },
-  {
-    "slug": "wsn-sim",
-    "title": "Wireless Sensor Network Simulator",
-    "description": "A network simulator that records per-message latency, sender, receiver, size, and energy, and is built to compare custom transmission protocols. Visualisation of live latency metrics is part of the design.",
-    "tags": [
-      "Python",
-      "WSN",
-      "Simulation"
-    ],
-    "year": "2025",
-    "demoUrl": null,
-    "sourceUrl": "https://github.com/sanyam-dev/wsn-sim",
     "featured": true,
     "sortOrder": 3
   }
