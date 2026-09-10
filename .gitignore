@@ -1,5 +1,7 @@
 node_modules/
 _site/
+.cursor/
+.firecrawl/
 backend/
 prototypes/
 .wireframe/
@@ -10,4 +12,3 @@ prototypes/
 .env*
 !.env.example
 .DS_Store
-.firecrawl/
