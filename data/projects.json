@@ -1,5 +1,36 @@
 [
   {
+    "slug": "vfsim",
+    "title": "vfsim — Vehicle Flow Simulator",
+    "description": "Describe a place and a change in plain language and vfsim simulates the area twice with the same seed, as it is and with your change. An LLM agent builds the scenario, a map editor adds flyovers, closures and signals, and an IDM/MOBIL engine replays both runs side by side with metrics.",
+    "tags": [
+      "Python",
+      "Traffic simulation",
+      "LLM agent",
+      "Cloud Run"
+    ],
+    "year": "2026",
+    "demoUrl": "https://vfsim-994012978460.asia-south1.run.app",
+    "sourceUrl": "https://github.com/sanyam-dev/vehicle-flow-sim",
+    "featured": true,
+    "sortOrder": 1
+  },
+  {
+    "slug": "precog-rl-portfolio",
+    "title": "Precog — RL Portfolio Allocation",
+    "description": "PPO and DDPG agents learn daily portfolio weights over 100 anonymized assets, tuned with Optuna and benchmarked against equal weight. Built on a technical-indicator feature panel, with a LightGBM next-close forecast and feature-correlation pair scores.",
+    "tags": [
+      "Reinforcement learning",
+      "PPO",
+      "Quant finance"
+    ],
+    "year": "2026",
+    "demoUrl": null,
+    "sourceUrl": "https://github.com/sanyam-dev/precog_test",
+    "featured": true,
+    "sortOrder": 2
+  },
+  {
     "slug": "exp-linear-decay-transition",
     "title": "Exp / Linear Decay Transition",
     "description": "Finds where a concentration curve leaves a near-linear regime and settles into clean single-exponential decay. Python analysis plus a notebook over average-concentration series, with linear and semi-log fits for the two regimes.",
@@ -12,7 +43,7 @@
     "demoUrl": null,
     "sourceUrl": "https://github.com/sanyam-dev/exp-linear-decay-transition",
     "featured": true,
-    "sortOrder": 1
+    "sortOrder": 3
   },
   {
     "slug": "spy-dia-market-harness",
@@ -27,7 +58,7 @@
     "demoUrl": null,
     "sourceUrl": null,
     "featured": true,
-    "sortOrder": 2
+    "sortOrder": 4
   },
   {
     "slug": "research-paper-rag",
@@ -42,6 +73,6 @@
     "demoUrl": null,
     "sourceUrl": "https://github.com/sanyam-dev/research_paper_rag",
     "featured": true,
-    "sortOrder": 3
+    "sortOrder": 5
   }
 ]
