@@ -17,7 +17,7 @@
   },
   {
     "slug": "precog-rl-portfolio",
-    "title": "Precog — RL Portfolio Allocation",
+    "title": "RL Portfolio Allocation",
     "description": "PPO and DDPG agents learn daily portfolio weights over 100 anonymized assets, tuned with Optuna and benchmarked against equal weight. Built on a technical-indicator feature panel, with a LightGBM next-close forecast and feature-correlation pair scores.",
     "tags": [
       "Reinforcement learning",
@@ -29,36 +29,6 @@
     "sourceUrl": "https://github.com/sanyam-dev/precog_test",
     "featured": true,
     "sortOrder": 2
-  },
-  {
-    "slug": "exp-linear-decay-transition",
-    "title": "Exp / Linear Decay Transition",
-    "description": "Finds where a concentration curve leaves a near-linear regime and settles into clean single-exponential decay. Python analysis plus a notebook over average-concentration series, with linear and semi-log fits for the two regimes.",
-    "tags": [
-      "Python",
-      "Scientific computing",
-      "Curve fitting"
-    ],
-    "year": "2026",
-    "demoUrl": null,
-    "sourceUrl": "https://github.com/sanyam-dev/exp-linear-decay-transition",
-    "featured": true,
-    "sortOrder": 3
-  },
-  {
-    "slug": "spy-dia-market-harness",
-    "title": "SPY / DIA Market Agent Harness",
-    "description": "An agent harness for running and evaluating market-analysis workflows against SPY and DIA. Focused on repeatable agent loops, tooling around those ETF series, and iterating on prompts and checks without hand-running every trial.",
-    "tags": [
-      "Agents",
-      "Markets",
-      "Harness"
-    ],
-    "year": "2026",
-    "demoUrl": null,
-    "sourceUrl": null,
-    "featured": true,
-    "sortOrder": 4
   },
   {
     "slug": "research-paper-rag",
@@ -73,6 +43,6 @@
     "demoUrl": null,
     "sourceUrl": "https://github.com/sanyam-dev/research_paper_rag",
     "featured": true,
-    "sortOrder": 5
+    "sortOrder": 3
   }
 ]
